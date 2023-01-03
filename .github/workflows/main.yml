@@ -14,6 +14,11 @@ jobs:
         name: Build
         runs-on: ubuntu-latest
         steps:
+            - name: set lower case owner name
+              run: |
+                  echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+              env:
+                  OWNER: '${{ github.repository_owner }}'
             - name: Check out source code # 현재 상태의 소스코드를 가상의 컨테이너 안으로 checkout 해주는 역할
               uses: actions/checkout@v2
             - name: Set up docker buildx # 가상의 컨테이너 안에 docker가 돌아갈 수 있는 환경을 설치하는 역할
