@@ -16,7 +16,7 @@ jobs:
         steps:
             - name: set lower case owner name
               run: |
-                  echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+                  echo "github.repository_owner=${OWNER,,}" >>${GITHUB_ENV}
               env:
                   OWNER: '${{ github.repository_owner }}'
             - name: Check out source code # 현재 상태의 소스코드를 가상의 컨테이너 안으로 checkout 해주는 역할
