@@ -1,4 +1,4 @@
-name: Node.js CI # 테스트
+name: Node.js CI # 테스트2
 
 on:
     push:
